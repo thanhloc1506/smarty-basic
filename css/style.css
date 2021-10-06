@@ -1,0 +1,112 @@
+.title {
+  color: red;
+}
+
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td,
+#customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+  background-color: #ddd;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #5095bd;
+  color: white;
+}
+
+.section-addcars {
+  margin-top: 3rem;
+}
+
+.add_btn {
+  float: right;
+  margin-right: 30px;
+  margin-top: 20px;
+}
+
+.container {
+  background-image: url("https://static.cybozu.com/ROOT/slash_21.9_03ca828_2021-08-13_08-15-34/image/argo/login/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  position: relative;
+}
+
+.title-login {
+  font-weight: bold;
+  font-size: 58px;
+  line-height: 56px;
+  padding: 16px 0 32px;
+  text-shadow: 1px 0 8px rgb(0 0 0, 40%);
+}
+
+.container-title {
+  position: absolute;
+  top: 9%;
+  left: 43%;
+  color: white;
+  font-weight: 600;
+  text-shadow: 1px 0 8px rgb(0, 0, 0, 40%);
+}
+
+.container-subtitle {
+  min-width: 400px;
+  min-height: 80px;
+}
+
+.container-subtitle_text {
+  margin-top: 0;
+  padding-top: 25px;
+  margin-left: 25px;
+  font-size: 30px;
+}
+
+.container-form {
+  position: absolute;
+  top: 25%;
+  left: 37%;
+  width: 500px;
+  height: 370px;
+  background-color: white;
+  border: 0.5px solid rgb(126, 123, 123);
+  box-shadow: 0.5px 0.5px 0.5px 0.5px rgb(155, 150, 150);
+}
+
+.input-form {
+  min-width: 400px;
+  min-height: 54px;
+}
+
+.input-form input {
+  min-width: 500px;
+  min-height: 60px;
+  background-color: #b2d6eb;
+  border: 1px solid #e3e7e8;
+  padding-left: 25px;
+  font-size: 16px;
+}
+
+.btn-form {
+  float: right;
+  margin-right: 30px;
+  margin-top: 40px;
+  width: 163px;
+  height: 48px;
+  background-color: #8ccbee;
+}
