@@ -1,4 +1,9 @@
-{config_load file='foo.conf'}
+<?php /* Smarty version 2.6.31, created on 2021-10-06 19:17:23
+         compiled from layout/dashboard.tpl */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('function', 'config_load', 'layout/dashboard.tpl', 1, false),array('modifier', 'json_decode', 'layout/dashboard.tpl', 97, false),)), $this); ?>
+<?php echo smarty_function_config_load(array('file' => 'foo.conf'), $this);?>
+
 <html>
 
 <head>
@@ -12,7 +17,7 @@
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/style.css">
     <title> Dashboard </title>
 </head>
 
@@ -20,7 +25,7 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="../../php/layout/update_dashboard.php" method="POST">
+                <form action="../../../controllers/users/update-user.php" method="POST">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Update user</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -53,7 +58,7 @@
     <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="../../php/layout/create_dashboard.php" method="POST">
+                <form action="../../../controllers/users/create-user.php" method="POST">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Create user</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -81,9 +86,12 @@
         </div>
     </div>
 
-    <button style="float: right; margin-right: 20px;"><a href="../../php/auth/logout.php"> Logout</a></button>
-    <h4 style="float: right; margin-right: 20px;"> Hello {$user.FULL_NAME}</h4>
-    <h1 class="title"> {#dashboardName#} </h1>
+    <button style="float: right; margin-right: 20px;"><a href="../../../controllers/auth/logout.php">
+            Logout</a></button>
+    <h4 style="float: right; margin-right: 20px;"> Hello <?php echo $this->_tpl_vars['user']['FULL_NAME']; ?>
+</h4>
+    <h1 class="title"> <?php echo $this->_config[0]['vars']['dashboardName']; ?>
+ </h1>
     <table id="customers">
         <tr>
             <th>Id</th>
@@ -93,43 +101,51 @@
             <th>Update</th>
             <th>Delete</th>
         </tr>
-        {foreach from=$user_list|json_decode item=user key=id}
+        <?php $_from = ((is_array($_tmp=$this->_tpl_vars['user_list'])) ? $this->_run_mod_handler('json_decode', true, $_tmp) : json_decode($_tmp)); if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['id'] => $this->_tpl_vars['user']):
+?>
             <tr>
-                <td class="id">{$user->UID}</td>
-                <td class="name">{$user->FULL_NAME}</td>
-                <td class="username">{$user->USERNAME}</td>
+                <td class="id"><?php echo $this->_tpl_vars['user']->UID; ?>
+</td>
+                <td class="name"><?php echo $this->_tpl_vars['user']->FULL_NAME; ?>
+</td>
+                <td class="username"><?php echo $this->_tpl_vars['user']->USERNAME; ?>
+</td>
                 <td class="Hpassword">********</td>
-                <td class="password" hidden>{$user->PASS}</td>
+                <td class="password" hidden><?php echo $this->_tpl_vars['user']->PASS; ?>
+</td>
                 <td><button class="btn-edit" type="button" data-toggle="modal" data-target="#exampleModal">Update</button>
                 </td>
-                <td><a href="../../php/layout/delele_dashboard.php?id={$user->UID}">Delete</a></td>
+                <td><a href="../../../controllers/users/delele-user.php?id=<?php echo $this->_tpl_vars['user']->UID; ?>
+">Delete</a></td>
             </tr>
-        {/foreach}
+        <?php endforeach; endif; unset($_from); ?>
     </table>
 
     <button class="add_btn" data-toggle="modal" data-target="#createModal">Add user</button>
 
 </body>
 
-{literal}
+<?php echo '
 
     <script>
         $(document).ready(() => {
             $(".btn-edit").click(function() {
-                var id = parseInt($(this).closest('tr').find('.id').text())
-                var name = $(this).closest('tr').find('.name').text()
-                var username = $(this).closest('tr').find('.username').text()
-                var password = $(this).closest('tr').find('.password').text()
-                $('#u_id').val(id)
-                $('#user_id').val(id)
-                $('#u_name').val(name)
-                $('#u_username').val(username)
-                $('#u_password').val(password)
+                var id = parseInt($(this).closest(\'tr\').find(\'.id\').text())
+                var name = $(this).closest(\'tr\').find(\'.name\').text()
+                var username = $(this).closest(\'tr\').find(\'.username\').text()
+                var password = $(this).closest(\'tr\').find(\'.password\').text()
+                $(\'#u_id\').val(id)
+                $(\'#user_id\').val(id)
+                $(\'#u_name\').val(name)
+                $(\'#u_username\').val(username)
+                $(\'#u_password\').val(password)
             })
         })
     </script>
 
-{/literal}
+'; ?>
+
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

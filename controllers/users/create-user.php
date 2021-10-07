@@ -1,5 +1,6 @@
 <?php
-include "../../config.php";
+require "../../models/users.php";
+$User = new User;
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $id = $name = $year = '';
     if (!empty($_POST['c_id'])) {
@@ -14,8 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (!empty($_POST['c_password'])) {
         $pass = $_POST['c_password'];
     }
-    $sql = "INSERT INTO user (UID, FULL_NAME, USERNAME, PASS) values('$id', '$name', '$username', '$pass')";
-    $conn->query($sql);
+    $User->createUser($id, $name, $username, $pass);
 }
 
 header("location: ../../index.php?smarty=dashboard");

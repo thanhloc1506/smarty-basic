@@ -9,7 +9,7 @@
     <title>404 HTML Template by Colorlib</title>
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="../css/error.css" />
+    <link type="text/css" rel="stylesheet" href="../../css/error.css" />
 
 
 </head>
@@ -22,7 +22,7 @@
                 <h1>4<span>0</span>0</h1>
             </div>
             <h2>{$msg}</h2>
-            <button class='btn-error' type="button"><a href="../index.php">Back to Login</a></button>
+            <button class='btn-error' type="button"><a href="index.php">Back to Login</a></button>
         </div>
     </div>
 

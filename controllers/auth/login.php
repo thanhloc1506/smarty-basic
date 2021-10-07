@@ -24,28 +24,26 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         }
     }
 
+    require '../../smarty/libs/Smarty.class.php';
+    require '../../models/users.php';
 
-    @include "../../config.php";
-    $sql = "";
     $msg = "Something went wrong";
+    $User = new User;
+    $smarty = new Smarty;
     if ($username) {
-        $sql = $sql . "select * from user where '$username'=username; ";
-        $user = $conn->query($sql);
-        if ($user->num_rows === 1) {
-            $user_info = $user->fetch_assoc();
-            $hash =  $user_info['PASS'];
-            $isValidPassword = $password == $hash;
+        $user_info = $User->getUserByUsername($username);
+        if ($user_info !== null) {
+            $isValidPassword = $password == $user_info['PASS'];
             $isAdmin = $user_info['role'] == 0;
             if ($isValidPassword && $isAdmin) {
                 $_SESSION['uid'] = $user_info['UID'];
-                echo $_SESSION['uid'];
-                header("location: ../../index.php?smarty=dashboard");
+                header("location: ../../smarty/index.php?smarty=dashboard");
             } else {
                 $msg = "Username or Password is invalid!";
             }
         } else {
             $msg = "Username or Password is invalid!";
         }
-        header("location: ../../index.php?smarty=error&msg='$msg'");
+        header("location: ../../smarty/index.php?smarty=error&msg='$msg'");
     }
 }

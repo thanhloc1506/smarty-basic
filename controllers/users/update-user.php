@@ -1,6 +1,6 @@
 <?php
-@include "../../config.php";
-
+require '../../models/users.php';
+$User = new User;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['u_id'];
@@ -8,7 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['u_username'];
     $password = $_POST['u_password'];
 
-    $sql = "UPDATE user SET FULL_NAME = '$name', USERNAME = '$username', PASS = '$password' where UID = '$id'";
-    $conn->query($sql);
+    $User->updateUser($id, $name, $username, $password);
 }
 header("location: ../../index.php?smarty=dashboard");
