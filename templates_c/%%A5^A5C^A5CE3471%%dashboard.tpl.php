@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.31, created on 2021-10-06 19:17:23
+<?php /* Smarty version 2.6.31, created on 2021-10-07 18:38:36
          compiled from layout/dashboard.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'config_load', 'layout/dashboard.tpl', 1, false),array('modifier', 'json_decode', 'layout/dashboard.tpl', 97, false),)), $this); ?>
@@ -17,7 +17,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'config_load
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="../../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <title> Dashboard </title>
 </head>
 
@@ -25,7 +25,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'config_load
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="../../../controllers/users/update-user.php" method="POST">
+                <form action="../../controllers/users/update-user.php" method="POST">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Update user</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -58,7 +58,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'config_load
     <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="../../../controllers/users/create-user.php" method="POST">
+                <form action="../../controllers/users/create-user.php" method="POST">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Create user</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -86,7 +86,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'config_load
         </div>
     </div>
 
-    <button style="float: right; margin-right: 20px;"><a href="../../../controllers/auth/logout.php">
+    <button style="float: right; margin-right: 20px;"><a href="../../controllers/auth.controller.php?req=logout">
             Logout</a></button>
     <h4 style="float: right; margin-right: 20px;"> Hello <?php echo $this->_tpl_vars['user']['FULL_NAME']; ?>
 </h4>

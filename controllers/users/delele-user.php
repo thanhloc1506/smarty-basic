@@ -5,4 +5,4 @@ $User = new User;
 
 $User->deleteUser($id);
 
-header("location: ../../index.php?smarty=dashboard");
+header("location: ../../pages/dashboard.php");

@@ -1,3 +1,3 @@
 <?php
 
-header("location: smarty/index.php?smarty=");
+header("location: controllers/base.controller.php");

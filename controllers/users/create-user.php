@@ -18,4 +18,4 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $User->createUser($id, $name, $username, $pass);
 }
 
-header("location: ../../index.php?smarty=dashboard");
+header("location: ../../pages/dashboard.php");

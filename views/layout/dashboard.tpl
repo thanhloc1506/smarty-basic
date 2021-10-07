@@ -12,7 +12,7 @@
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="../../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <title> Dashboard </title>
 </head>
 
@@ -20,7 +20,7 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="../../../controllers/users/update-user.php" method="POST">
+                <form action="../../controllers/users/update-user.php" method="POST">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Update user</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -53,7 +53,7 @@
     <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="../../../controllers/users/create-user.php" method="POST">
+                <form action="../../controllers/users/create-user.php" method="POST">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Create user</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -81,7 +81,7 @@
         </div>
     </div>
 
-    <button style="float: right; margin-right: 20px;"><a href="../../../controllers/auth/logout.php">
+    <button style="float: right; margin-right: 20px;"><a href="../../controllers/auth.controller.php?req=logout">
             Logout</a></button>
     <h4 style="float: right; margin-right: 20px;"> Hello {$user.FULL_NAME}</h4>
     <h1 class="title"> {#dashboardName#} </h1>

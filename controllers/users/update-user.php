@@ -10,4 +10,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $User->updateUser($id, $name, $username, $password);
 }
-header("location: ../../index.php?smarty=dashboard");
+header("location: ../../pages/dashboard.php");
